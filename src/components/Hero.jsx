@@ -13,9 +13,9 @@ const HeroSection = () => {
     <>
       <main className="flex flex-col items-center max-w-7xl mx-auto w-full">
         {/* Badge */}
-        <button className="mt-16 mb-6 flex items-center space-x-2 border border-indigo-600 text-indigo-600 text-xs rounded-full px-4 pr-1.5 py-1.5 hover:bg-indigo-50 transition">
+        <button className="mt-16 mb-6 flex items-center space-x-2 border border-red-600 text-red-600 text-xs rounded-full px-4 pr-1.5 py-1.5 hover:bg-red-50 transition">
           <span>Helping real estate & construction brands grow</span>
-          <span className="flex items-center justify-center size-6 p-1 rounded-full bg-indigo-600">
+          <span className="flex items-center justify-center size-6 p-1 rounded-full bg-red-600">
             <svg width="14" height="11" viewBox="0 0 16 13" fill="none">
               <path
                 d="M1 6.5h14M9.5 1 15 6.5 9.5 12"
@@ -31,7 +31,7 @@ const HeroSection = () => {
         {/* Title */}
         <h1 className="text-center text-gray-900 font-semibold text-3xl sm:text-4xl md:text-5xl max-w-2xl leading-tight">
           Powering modern{" "}
-          <span className="text-indigo-600">
+          <span className="text-red-600">
             real estate & construction
           </span>{" "}
           businesses
@@ -44,7 +44,7 @@ const HeroSection = () => {
         </p>
 
         {/* CTA */}
-        <button className="mt-8 bg-indigo-600 text-white px-6 pr-2.5 py-2.5 rounded-full text-sm font-medium flex items-center space-x-2 hover:bg-indigo-700 transition">
+        <button className="mt-8 bg-red-500 text-white px-6 pr-2.5 py-2.5 rounded-full text-sm font-medium flex items-center space-x-2 hover:bg-orange-500 transition">
           <span>View Property Solutions</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path

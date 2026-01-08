@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       animation: {
         marquee: "marquee 25s linear infinite",
+        "spin-slow": "spin 2.5s linear infinite",
       },
       keyframes: {
         marquee: {

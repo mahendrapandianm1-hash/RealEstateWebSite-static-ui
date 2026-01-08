@@ -42,7 +42,7 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-semibold mb-4">Contact Us</h4>
           <p className="text-sm">Chennai, Tamil Nadu</p>
-          <p className="text-sm mt-2">📞 +91 98765 43210</p>
+          <p className="text-sm mt-2">📞 +91 96000 00000</p>
           <p className="text-sm mt-1">✉️ info@realestateco.com</p>
         </div>
 
