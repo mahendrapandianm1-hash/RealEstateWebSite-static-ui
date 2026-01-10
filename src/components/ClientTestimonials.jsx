@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 /* -------------------- Testimonials -------------------- */
 
@@ -24,10 +24,24 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
-  return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
+  // Scroll animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section className="py-16 bg-gray-50" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-sm uppercase tracking-wider text-indigo-600 font-semibold">
             Testimonials
@@ -37,11 +51,16 @@ const TestimonialsSection = () => {
           </h3>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Testimonials Grid */}
+        <div
+          className={`mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-[1200ms] ease-out ${
+            visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-32"
+          }`}
+        >
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow hover:shadow-md transition"
+              className="bg-white rounded-xl p-6 shadow hover:shadow-md transition-transform duration-700 ease-out hover:-translate-y-1"
             >
               <p className="text-gray-600 text-sm leading-relaxed">
                 “{item.feedback}”
@@ -54,11 +73,9 @@ const TestimonialsSection = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
 };
-
 
 export default TestimonialsSection;

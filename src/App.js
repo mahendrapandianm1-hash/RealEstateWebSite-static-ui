@@ -14,7 +14,7 @@ function App() {
     setTimeout(() => setLoading(false), 1500);
   }, []);
   return (
-    <div className="App">
+    <>
       {loading && <PageLoader />}
      {/* <Navbar /> */}
      {!loading && (
@@ -27,7 +27,7 @@ function App() {
          </Routes>
        </MainLayout>
      </BrowserRouter>) }
-    </div>
+    </>
   );
 }
 

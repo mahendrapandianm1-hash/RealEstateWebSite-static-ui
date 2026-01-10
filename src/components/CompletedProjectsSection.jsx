@@ -29,33 +29,13 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
   },
-  {
-    title: "Prime Retail Plaza",
-    location: "Hyderabad",
-    type: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
-  },
-    {
-    title: "Prime Retail Plaza",
-    location: "Hyderabad",
-    type: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
-  },
-    {
-    title: "Prime Retail Plaza",
-    location: "Hyderabad",
-    type: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
-  },
 ];
 
-const FeaturedProjectsSection = () => {
+const CompletedProjectsSection = () => {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
+  // Intersection Observer for scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setVisible(entry.isIntersecting),
@@ -79,12 +59,12 @@ const FeaturedProjectsSection = () => {
               }`}
             />
             <h2 className="text-sm uppercase tracking-wider text-indigo-600 font-semibold">
-              Service
+              Completed Projects
             </h2>
           </div>
 
           <h3 className="mt-2 text-2xl sm:text-3xl font-bold text-gray-900">
-            Our Latest Project
+            Our Latest Work
           </h3>
           <p className="mt-4 text-gray-600 text-sm sm:text-base">
             Explore some of our completed and ongoing projects that reflect our
@@ -94,8 +74,9 @@ const FeaturedProjectsSection = () => {
 
         {/* Projects Grid */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-transform duration-[1200ms] ease-out
-            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"}`}
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-[1200ms] ease-out ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
+          }`}
         >
           {projects.map((project, index) => (
             <div
@@ -143,10 +124,9 @@ const FeaturedProjectsSection = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
 };
 
-export default FeaturedProjectsSection;
+export default CompletedProjectsSection;

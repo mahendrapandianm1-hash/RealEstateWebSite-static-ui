@@ -7,6 +7,7 @@ import FeaturedProjectsSection from '../components/FeaturedProjectsSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import TestimonialsSection from '../components/ClientTestimonials';
 import CTASection from '../components/CTASection';
+import CompletedProjectsSection from '../components/CompletedProjectsSection';
 export const Home =  () =>
 {
   return (
@@ -14,9 +15,10 @@ export const Home =  () =>
    <HeroSection />
    <TrustStatsSection />
    <AboutCompanySection />
-   <ServicesSection />
+   {/*<ServicesSection /> */}
    <FeaturedProjectsSection />
    <WhyChooseUsSection />
+   <CompletedProjectsSection />
    <TestimonialsSection />
    <CTASection />
    </>

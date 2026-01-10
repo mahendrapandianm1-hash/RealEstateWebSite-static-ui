@@ -1,10 +1,34 @@
+import React, { useEffect, useRef, useState } from "react";
+
 const AboutCompanySection = () => {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  // Intersection Observer to animate on scroll every time
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);  // enter → animate
+        else setVisible(false);                       // leave → reset
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -100px 0px" }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-16 bg-gray-50">
+    <section ref={sectionRef} className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 grid md:grid-cols-2 gap-10 items-center">
 
         {/* Left Content */}
-        <div>
+        <div
+          className={`transition-all duration-700 ease-out ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+          }`}
+        >
           <h2 className="text-sm uppercase tracking-wider text-indigo-600 font-semibold">
             Who We Are
           </h2>
@@ -45,7 +69,11 @@ const AboutCompanySection = () => {
         </div>
 
         {/* Right Image */}
-        <div className="relative">
+        <div
+          className={`relative transition-all duration-700 ease-out ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <img
             src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80"
             alt="Real estate and construction"
@@ -53,7 +81,11 @@ const AboutCompanySection = () => {
           />
 
           {/* Overlay Card */}
-          <div className="absolute -bottom-6 left-6 bg-white px-5 py-4 rounded-xl shadow-md">
+          <div
+            className={`absolute -bottom-6 left-6 bg-white px-5 py-4 rounded-xl shadow-md transition-all duration-700 ease-out ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             <p className="text-sm text-gray-600">
               <span className="font-bold text-indigo-600">15+</span> Years of
               Industry Experience

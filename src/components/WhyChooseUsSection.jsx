@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 const reasons = [
   {
@@ -40,15 +40,36 @@ const reasons = [
 ];
 
 const WhyChooseUsSection = () => {
-  return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section className="py-20 bg-white" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-sm uppercase tracking-wider text-indigo-600 font-semibold">
-            Why Choose Us
-          </h2>
+        <div className="text-center max-w-2xl mx-auto mb-14 relative">
+          <div className="relative inline-block">
+            {/* Gradient underline */}
+            <span
+              className={`absolute left-0 bottom-0 h-1.5 rounded-full bg-gradient-to-r from-indigo-400 via-indigo-300 to-indigo-200 blur-sm transition-all duration-700 ${
+                visible ? "w-full opacity-100" : "w-0 opacity-0"
+              }`}
+            />
+            <h2 className="text-sm uppercase tracking-wider text-indigo-600 font-semibold">
+              Why Choose Us
+            </h2>
+          </div>
+
           <h3 className="mt-2 text-2xl sm:text-3xl font-bold text-gray-900">
             What makes us a trusted real estate partner
           </h3>
@@ -63,21 +84,20 @@ const WhyChooseUsSection = () => {
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition group"
+              className={`bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-transform duration-700 ease-out
+                ${visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-20"}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="text-4xl mb-4">{reason.icon}</div>
-
               <h4 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition">
                 {reason.title}
               </h4>
-
               <p className="mt-3 text-gray-600 text-sm leading-relaxed">
                 {reason.description}
               </p>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
