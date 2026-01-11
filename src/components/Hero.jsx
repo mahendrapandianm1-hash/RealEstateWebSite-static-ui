@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 const images = [
-  "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1600&q=80",
   "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=80",
-];
+  "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+  "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1600&q=80",
+  ];
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
@@ -52,9 +52,18 @@ const HeroSection = () => {
             professionals to deliver faster and smarter results.
           </p>
 
-          <button className="mt-6 bg-indigo-600 px-7 py-3 rounded-full text-sm font-medium hover:bg-[#35b4f6cc]/80 transition">
-            Contact Us
-          </button>
+       <button className="
+  mt-6 px-8 py-3 rounded-full text-sm font-semibold text-white
+  bg-gradient-to-r from-indigo-600 to-blue-500
+  shadow-lg shadow-indigo-500/30
+  backdrop-blur-md
+  hover:from-indigo-500 hover:to-blue-400
+  hover:shadow-xl hover:shadow-indigo-500/40
+  transition-all duration-300 ease-out
+">
+  Contact Us
+</button>
+
         </div>
       </div>
 

@@ -97,30 +97,61 @@ const CompletedProjectsSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-5">
-                <h4 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition">
-                  {project.title}
-                </h4>
-                <p className="mt-1 text-sm text-gray-500">📍 {project.location}</p>
+              {/* Content */}
+<div className="p-5">
+  {/* Title */}
+  <h4 className="text-base font-semibold text-gray-900 leading-snug
+    group-hover:text-indigo-600 transition-colors duration-300">
+    {project.title}
+  </h4>
 
-                <a
-                  href="/projects"
-                  className="inline-flex items-center mt-4 text-sm font-medium text-indigo-600 hover:text-indigo-700 transition"
-                >
-                  View details
-                  <svg
-                    className="ml-2 w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
+  {/* Location */}
+  <div className="mt-1 flex items-center text-sm text-gray-500">
+    <svg
+      className="w-4 h-4 mr-1.5 text-indigo-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 21s7-7.4 7-12a7 7 0 10-14 0c0 4.6 7 12 7 12z" />
+      <circle cx="12" cy="9" r="2.5" />
+    </svg>
+    {project.location}
+  </div>
+
+  {/* CTA */}
+  <a
+    href="/projects"
+    className="group/cta inline-flex items-center gap-2 mt-4
+      text-sm font-semibold text-indigo-600
+      transition-all duration-300"
+  >
+    <span className="relative">
+      View details
+      {/* underline animation */}
+      <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-indigo-600
+        group-hover/cta:w-full transition-all duration-300"></span>
+    </span>
+
+    {/* Arrow animation */}
+    <svg
+      className="w-4 h-4 transform transition-transform duration-300
+        group-hover/cta:translate-x-1"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14M13 5l7 7-7 7" />
+    </svg>
+  </a>
+</div>
+
             </div>
           ))}
         </div>

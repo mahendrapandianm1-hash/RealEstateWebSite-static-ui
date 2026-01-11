@@ -1,19 +1,39 @@
-import logo from "../assets/sairam-logo.png"; 
-
 const PageLoader = () => {
   return (
-    <div className="fixed inset-0 bg-white/90 flex flex-col items-center justify-center z-50">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
       
-      {/* Logo */}
-      <img
-        src={logo}
-        alt="SaiRam Properties Pvt Ltd"
-        className="w-40 mb-6"   // increased logo size
-      />
+      {/* Brand Text */}
+      <h1 className="text-2xl sm:text-3xl font-bold text-orange-600 tracking-wide">
+        SaiRam Properties Pvt Ltd
+      </h1>
+      <p className="mt-1 text-sm text-gray-500">Real Estate | Construction</p>
 
-      {/* Spinner */}
-      <div className="w-10 h-10 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
-
+      {/* Circular Loader */}
+      <div className="mt-10">
+        <svg
+          className="w-20 h-20 animate-spin"
+          viewBox="0 0 50 50"
+        >
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke="#e0e7ff"
+            strokeWidth="4"
+          />
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke="#4f46e5"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeDasharray="90 60"
+          />
+        </svg>
+      </div>
     </div>
   );
 };
